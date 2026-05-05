@@ -15,9 +15,9 @@ const FADE_MS = 320
 // To replace a stylized frame with a real screenshot, drop a PNG in
 // `public/screens/` and reference the path here.
 const SCREENSHOT_FRAMES = [
-  '/screens/runkeeper.png', // Frame 0 — Runkeeper (replaces stylized fitness)
-  null, // Frame 1 — keep stylized auth (or set '/screens/onespan.png')
-  null, // Frame 2 — keep stylized insurance (or set '/screens/insurance.png')
+  '/screens/runkeeper-1.jpg',
+  '/screens/runkeeper-2.jpg',
+  '/screens/runkeeper-3.jpg',
 ]
 
 // ───── 2D canvas frame painters (monochrome, Apple-style) ─────
