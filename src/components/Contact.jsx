@@ -5,7 +5,15 @@ const SOCIAL_LABELS = {
   github: 'GitHub',
   linkedin: 'LinkedIn',
   email: 'Email',
+  whatsapp: 'WhatsApp',
+  phone: 'Phone',
   stackoverflow: 'Stack Overflow',
+}
+
+// Format an E.164 number for display: +15816883007 → +1 (581) 688-3007
+function formatPhone(e164) {
+  const m = e164.match(/^\+(\d)(\d{3})(\d{3})(\d{4})$/)
+  return m ? `+${m[1]} (${m[2]}) ${m[3]}-${m[4]}` : e164
 }
 
 export default function Contact() {
@@ -82,25 +90,30 @@ export default function Contact() {
         >
           {socialEntries
             .filter(([k]) => k !== 'email')
-            .map(([k, v]) => (
-              <a
-                key={k}
-                href={v}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: '#86868b',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#86868b')}
-              >
-                {SOCIAL_LABELS[k] ?? k}
-              </a>
-            ))}
+            .map(([k, v]) => {
+              const isPhone = k === 'phone'
+              const href = isPhone ? `tel:${v}` : v
+              const label = isPhone ? formatPhone(v) : SOCIAL_LABELS[k] ?? k
+              return (
+                <a
+                  key={k}
+                  href={href}
+                  target={isPhone ? undefined : '_blank'}
+                  rel={isPhone ? undefined : 'noopener noreferrer'}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: '#86868b',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#86868b')}
+                >
+                  {label}
+                </a>
+              )
+            })}
         </div>
       </div>
 

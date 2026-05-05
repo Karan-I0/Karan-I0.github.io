@@ -244,6 +244,8 @@ export const DEV = {
     github: 'https://github.com/Karan-I0',
     linkedin: 'https://www.linkedin.com/in/karan0910/',
     email: '95sharma.karan@gmail.com',
+    whatsapp: 'https://wa.me/15816883007', // +1 (581) 688-3007
+    phone: '+15816883007', // E.164; rendered as a tel: link
     stackoverflow: '', // optional — paste full URL or leave blank to hide
   },
 }
