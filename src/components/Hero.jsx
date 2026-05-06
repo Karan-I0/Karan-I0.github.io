@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import MockupPhone from './MockupPhone'
+import ParticleName from './ParticleName'
 import { DEV } from '../data'
 
 export default function Hero() {
@@ -60,18 +61,21 @@ export default function Hero() {
           className="eyebrow"
           style={{
             color: '#86868b',
-            marginBottom: 18,
+            marginBottom: 12,
           }}
         >
           Senior Mobile Engineer · Calgary
         </p>
 
+        {/* Name as particles converging from a "universe" */}
+        <ParticleName text={DEV.name} />
+
         {/* The phone */}
         <div
           style={{
             width: '100%',
-            height: 'min(60vh, 540px)',
-            margin: '0 auto 30px',
+            height: 'min(54vh, 480px)',
+            margin: '14px auto 26px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -80,18 +84,6 @@ export default function Hero() {
           <MockupPhone scrollProgress={scrollProgress} />
         </div>
 
-        <h1
-          style={{
-            fontSize: 'clamp(44px, 8vw, 96px)',
-            fontWeight: 600,
-            letterSpacing: '-0.035em',
-            lineHeight: 1.05,
-            color: '#ffffff',
-            marginBottom: 20,
-          }}
-        >
-          {DEV.name}.
-        </h1>
         <p
           style={{
             fontSize: 'clamp(17px, 2.2vw, 22px)',
